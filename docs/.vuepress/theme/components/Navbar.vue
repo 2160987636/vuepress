@@ -28,7 +28,7 @@
       } : {}">
       <!-- 二次开发跳转链接 -->
       <div class="second-link" @click="jumpTo()">
-        <img :src="`${baseUrl}/link-icon.png`" />
+        <img :src="`${baseUrl}link-icon.png`" />
         二次开发工具包
       </div>
       <!-- <AlgoliaSearchBox
@@ -61,7 +61,7 @@ export default defineComponent({
       return instance.$toolbagAddress || ''
     })
     const baseUrl = computed(() => {
-      return instance.$base || ''
+      return instance.$site.base || ''
     })
     const algolia = computed(() => {
       return instance.$themeLocaleConfig.algolia || instance.$themeConfig.algolia || {}
