@@ -28,7 +28,7 @@
       } : {}">
       <!-- 二次开发跳转链接 -->
       <div class="second-link" @click="jumpTo()">
-        <img src="/link-icon.png" />
+        <img :src="`${baseUrl}/link-icon.png`" />
         二次开发工具包
       </div>
       <!-- <AlgoliaSearchBox
@@ -59,6 +59,9 @@ export default defineComponent({
     const linksWrapMaxWidth = ref(null)
     const toolbagAddress = computed(() => {
       return instance.$toolbagAddress || ''
+    })
+    const baseUrl = computed(() => {
+      return instance.$base || ''
     })
     const algolia = computed(() => {
       return instance.$themeLocaleConfig.algolia || instance.$themeConfig.algolia || {}
@@ -109,7 +112,7 @@ export default defineComponent({
       currentMode.value = mode
     }
  
-    return { linksWrapMaxWidth, algolia, isAlgoliaSearch, css , jumpTo,changeMode, currentMode, toolbagAddress, jumpToWeb}
+    return { linksWrapMaxWidth, algolia, isAlgoliaSearch, css , jumpTo,changeMode, currentMode, toolbagAddress, jumpToWeb, baseUrl}
   }
 })
 </script>
